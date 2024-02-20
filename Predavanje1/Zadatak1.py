@@ -1,4 +1,4 @@
-
+#linearna kongruentna metoda
 a, c, M, r1 = 57, 1, 256, 10
 
 ri = [0]*(M+10)
