@@ -41,7 +41,10 @@ def dif(g_x, xt0_N, R, D, met):
     dif_r = np.zeros(N+1)
     for u in range(len(dif_p)):
         dif_p[u] = g_x(xt0_N[0]+u*dx)
-        if (dif_p[u] == 0.0 and dif_p[u-1] == 5.5) or (dif_p[u] == 5.5 and dif_p[u-1] == 0.0):
+        if (dif_p[u] == 0.0 and dif_p[u-1] == 5.5):
+            U = dif_p[u-1]
+            dif_p[u-1] = U/2
+        elif (dif_p[u] == 5.5 and dif_p[u-1] == 0.0):
             U = dif_p[u]
             dif_p[u] = U/2
     if met == 'exp': #eksplicitna metoda
