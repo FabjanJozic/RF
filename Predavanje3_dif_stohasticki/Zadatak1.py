@@ -24,17 +24,17 @@ for t in range(1, Nt+1):
 a, b, r, p, std_err = S.linregress(time, squared)
 
 D = a/2
-dx, dt = 0.01, 0.0001
+dx, dt = 0.005, 0.0001
 
-P1 = [-1.5, 1.5, 0.0, 0.0, dx, dt] #pocetni uvjeti
-P2 = [-1.5, 1.5, 0.0, 2.5, dx, dt]
-P3 = [-1.5, 1.5, 0.0, 7.0, dx, dt]
-P4 = [-1.5, 1.5, 0.0, 15.0, dx, dt]
-P5 = [-1.5, 1.5, 0.0, 20.0, dx, dt]
+P1 = [-1.0, 1.0, 0.0, 0.0, dx, dt] #pocetni uvjeti
+P2 = [-1.0, 1.0, 0.0, 2.5, dx, dt]
+P3 = [-1.0, 1.0, 0.0, 7.0, dx, dt]
+P4 = [-1.0, 1.0, 0.0, 15.0, dx, dt]
+P5 = [-1.0, 1.0, 0.0, 20.0, dx, dt]
 Rub = [0.0, 0.0] #rubni uvjeti
 metoda = 'exp'
 def rho(x):
-    if x >= -2*dx and x <= 2*dx:
+    if x >= -1.5*dx and x <= 1.5*dx:
         return 1.0
     else:
         return 0.0
@@ -45,11 +45,11 @@ D3 = di.dif(rho, P3, Rub, D, metoda)
 D4 = di.dif(rho, P4, Rub, D, metoda)
 D5 = di.dif(rho, P5, Rub, D, metoda)
 
-X1 = [x for x in np.arange(-1.5, 1.5+dx, dx)]
-X2 = [x for x in np.arange(-1.5, 1.5+dx, dx)]
-X3 = [x for x in np.arange(-1.5, 1.5+dx, dx)]
-X4 = [x for x in np.arange(-1.5, 1.5+dx, dx)]
-X5 = [x for x in np.arange(-1.5, 1.5+dx, dx)]
+X1 = [x for x in np.arange(-1.0, 1.0+dx, dx)]
+X2 = [x for x in np.arange(-1.0, 1.0+dx, dx)]
+X3 = [x for x in np.arange(-1.0, 1.0+dx, dx)]
+X4 = [x for x in np.arange(-1.0, 1.0+dx, dx)]
+X5 = [x for x in np.arange(-1.0, 1.0+dx, dx)]
 
 fig = plt.figure(figsize=(7,6), dpi=120)
 axes = fig.add_axes([0.15, 0.15, 0.75, 0.80])
@@ -62,9 +62,9 @@ axes.plot(X5, D5, lw=1.0, color='cyan')
 axes.grid(lw=0.4, linestyle=':')
 axes.set_xlabel('$x$ / m')
 axes.set_ylabel('$\u03C1(x,t)$ / kgm$^{-1}$')
-axes.set_xlim(-1.0, 1.0)
+axes.set_xlim(-0.35, 0.35)
 axes.set_ylim(-0.05, 1.05)
-axes.legend(['t = {}s'.format(P1[3]), 't = {}s'.format(P2[3]), 't = {}s'.format(P2[3]),
+axes.legend(['t = {}s'.format(P1[3]), 't = {}s'.format(P2[3]), 't = {}s'.format(P3[3]),
              't = {}s'.format(P4[3]), 't = {}s'.format(P5[3])], loc='upper right')
 axes.set_title('Diracova delta - difuzijska distribucija')
 plt.show()
