@@ -42,12 +42,6 @@ def dif(g_x, xt0_N, R, D, met):
     dif_L = []
     for u in range(len(dif_p)):
         dif_p[u] = g_x(xt0_N[0]+u*dx)
-        if (dif_p[u] == 0.0 and dif_p[u-1] == 1/dx):
-            U = dif_p[u-1]
-            dif_p[u-1] = U/2
-        elif (dif_p[u] == 1/dx and dif_p[u-1] == 0.0):
-            U = dif_p[u]
-            dif_p[u] = U/2
     dif_L.append(dif_p)
     if met == 'exp': #eksplicitna metoda
         for j in range(M+1): #vrijeme
