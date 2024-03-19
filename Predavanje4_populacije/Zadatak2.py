@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+#populacija grabezljivca i plijena
 V = [100] #populacija vjeverica
 S = [15] #populacija sokolova
 r_v, d_sv, r_vs, d_s = 2.0, 0.02, 0.01, 1.06
