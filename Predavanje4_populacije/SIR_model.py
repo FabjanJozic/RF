@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 #SIR model sirenja bolesti
 N = 763
-S = [N] #podlijezni bolesti
+S = [N-1] #podlijezni bolesti
 I = [1] #zarazeni
 R = [0] #oporavljeni
 gamma, beta = 0.5, 0.00218
