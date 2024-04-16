@@ -18,6 +18,11 @@ void loop() {
   Serial.println(V_out);
   Serial.print("R: ");
   Serial.println(R);
-  delay(1000);
+  delay(3000);
 }
 
+//plavi otpornik = 221.73 ohm, 2.49 V, 0.45%
+//smedi otpornik = 554.16 ohm, 1.42 V, 0.73%
+//zelena dioda = 163.13 ohm, 2.87 V
+//zuta dioda = 152.98 ohm, 2.95 V
+//crvena dioda = 154.22 ohm, 2.94 V 
